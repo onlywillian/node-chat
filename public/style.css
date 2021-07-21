@@ -1,42 +1,66 @@
-html, body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    outline: 0;
 }
-
-input {
-    width: 400px;
-    border: 1px solid #ddd;
-    height: 50px;
-    padding: 0 20px;
-    font-size: 14px;
+body {
+    display: flex;
+    height: 100vh;
+    background-color: rgb(218, 218, 218);
 }
-
-button {
-    width: 400px;
-    height: 50px;
-    font-size: 14px;
-    background: #069;
-    text-align: center;
-    line-height: 50px;
-    font-weight: bold;
-    color: #FFF;
-    margin-top: 10px;
+.messages-output {
+    width: 95vw;
+    margin: 0 auto;
+    margin-top: 1%;
+    height: 82%;
+    display: flex;
+    flex-direction: column;
 }
 form {
-    display: grid;
+    align-self: flex-end;
+    width: 96%;
+    position: fixed;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2%;
+    margin-bottom: 2%;
 }
-.messages {
-    width: 400px;
-    height: 400px;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    padding: 20px;
+form input[type="text"] {
+    height: 100%;
+    border-radius: 20px;
+    width: 80%;
+    padding: 0 2%;
+    font-size: calc(1rem + .3vw);
+    border: none;
+}
+form button {
+    width: 10%;
+    height: 100%;
+    border: none;
+    background-color: rgb(43, 43, 129);
+    color: white;
+    border-radius: 20px;
+    font-size: calc(1rem + .1vw);
+}
+/* Script styles */
+.my-message {
+    background-color: rgb(43, 43, 129);
+    padding: 1% 2%;
+    color: white;
+    max-width: 60%;
+    align-self: flex-end;
+    border-radius: 10px 0 10px 10px;
+    margin-bottom: .5%;
+    font-size: calc(1rem + .3vw);
+}
+.other-message {
+    background-color: white;
+    padding: 1% 2%;
+    color: black;
+    max-width: 60%;
+    align-self: flex-start;
+    border-radius: 10px 0 10px 10px;
+    margin-bottom: .5%;
+    font-size: calc(1rem + .3vw);
 }

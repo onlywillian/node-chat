@@ -1,20 +1,17 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+const httpServer = require("http").createServer(app);
+const io = require("socket.io")(httpServer);
+const path = require('path');
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+app.use(express.static(path.join(__dirname, 'public')));//Servindo os arquivos
+
+io.on('connection', function (socket) {
+  socket.emit("new user", "A new user has connected!");
+
+  socket.on("chat message", msg => {
+    socket.broadcast.emit("message for all users", msg);
+  });
 });
 
-io.on('connection', (socket) => {//Quando alguém se conectar
-  console.log('a user connected');
-
-  socket.on('chat message', msg => {//Quando enviar uma msg
-    io.emit('message', msg)//Emitindo de volta
-  })
-});
-
-server.listen(process.env.PORT || 3000);
+httpServer.listen(process.env.PORT || 3000);//Caso seja acessado pelo Heroku
