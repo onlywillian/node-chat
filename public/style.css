@@ -105,12 +105,12 @@ header {
 form {
     align-self: flex-end;
     width: 96%;
-    position: fixed;
     height: 8%;
     display: flex;
     justify-content: space-between;
     margin: 0 2%;
     margin-bottom: 2%;
+    position: absolute;
 }
 form input[type="text"] {
     height: 100%;
