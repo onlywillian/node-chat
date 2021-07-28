@@ -19,8 +19,6 @@ io.on('connection', socket => {
     socket.broadcast.emit("typing", user);
   });
 
-  socket.on('')
-
   /* emmiting for all users except the sender */
   socket.on("chat message", (msg, user) => {
     socket.broadcast.emit("message for all users", msg);
