@@ -6,10 +6,26 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div class="name-container">
+      <p>Insira seu nickname:</p>
+      <input type="text" autocomplete="off" id="username" placeholder="Ex: Will">
+      <button>Escolher</button>
+    </div>
+
+    <header>
+      <div class="chat-name">Defalt Room</div>
+
+      <div class="typing"></div>
+
+      <div class="clients-count">
+        <div class="on-ball"></div>
+      </div>
+    </header>
+
     <div class="messages-output"></div>
     <form id="message-area">
       <input type="text" autocomplete="off" id="message" placeholder="Write your message">
-      <button type="submit">Send</button>
+      <button type="submit"> <img src="src/airplane.png" alt="Send Message"> </button>
     </form>
 
     <!-- Javascript import -->
