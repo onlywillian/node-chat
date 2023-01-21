@@ -40,10 +40,10 @@ function createReceivedMessage(msg) {
 
 function updateUsersCount(total) {
     try {
-        document.querySelector('.clients-count').querySelector('nobr').remove();
+        document.querySelector('.clients-count').querySelector('span').remove();
     } catch (error) {}
 
-    const p = document.createElement('nobr');
+    const p = document.createElement('span');
     const container = document.querySelector('.clients-count');
 
     container.appendChild(p);
@@ -65,7 +65,7 @@ form.addEventListener('submit', function(e) {
     if (input.value) {
     createSenderMessage(input.value);
 
-    socket.emit('chat message', input.value, username);
+    socket.emit('chatMessage', input.value, username);
 
     input.value = '';
     };
@@ -75,10 +75,10 @@ socket.on("typing", user => {
     document.querySelector('.typing').innerHTML = `${user} is typing...`
 });
 
-socket.on("message for all users", msg => {
+socket.on("messageForAllUsers", msg => {
     createReceivedMessage(msg);
 });
 
-socket.on("new user", number => {
+socket.on("newUser", number => {
     updateUsersCount(number);
 });
